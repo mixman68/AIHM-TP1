@@ -1,5 +1,6 @@
 package aihm.tp1;
 
+import java.awt.BorderLayout;
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -14,6 +15,7 @@ public class MainFrame extends JFrame {
     protected JToggleButton btn1, btn2, btn3;
     protected JLabel text1;
     protected ImageIcon ico1, ico2, ico3, icos1, icos2, icos3;
+    protected JToolBar toolBar;
 
     public MainFrame() {
         initComponants();
@@ -32,11 +34,15 @@ public class MainFrame extends JFrame {
         //ajout menu
         this.setJMenuBar(new BarreMenu(this));
         
-
-
+        //ajout toolbar
+        toolBar = new JToolBar("Still draggable");
+        
+        this.getContentPane().add(toolBar,BorderLayout.PAGE_START);
+        this.addButtons(toolBar);
+        
         //ajout panneau principal
         panel = new JSplitPane();
-        this.add(panel);
+        this.getContentPane().add(panel,BorderLayout.CENTER);
 
 
         //PanneauGauche
@@ -44,10 +50,10 @@ public class MainFrame extends JFrame {
         panel.setLeftComponent(pg);
         pg.setLayout(new BoxLayout(pg, BoxLayout.Y_AXIS));
 
-        this.addLeftComponents(pg);
+        this.addButtons(pg);
     }
 
-    private void addLeftComponents(JPanel p) {
+    private void addButtons(JComponent p) {
         btn1 = new JToggleButton();
         btn2 = new JToggleButton();
         btn3 = new JToggleButton();
