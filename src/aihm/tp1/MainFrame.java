@@ -10,6 +10,10 @@ import javax.swing.*;
 public class MainFrame extends JFrame {
 
     private JSplitPane panel;
+    
+    //Boutons
+    JButton btn1,btn2,btn3;
+    ImageIcon ico1,ico2,ico3;
 
     public MainFrame() {
         initComponants();
@@ -31,6 +35,37 @@ public class MainFrame extends JFrame {
         //ajout panneau principal
         panel = new JSplitPane();
         this.add(panel);
+        
+        
+        //PanneauGauche
+        JPanel pg = new JPanel();
+        panel.setLeftComponent(pg);
+        pg.setLayout(new BoxLayout(pg,BoxLayout.Y_AXIS));
+        
+        this.addLeftComponents(pg);
+    }
+    
+    
+    private void addLeftComponents(JPanel p)
+    {
+        btn1 = new JButton();
+        btn2 = new JButton();
+        btn3 = new JButton();
+        
+        ico1 = new ImageIcon("img/One.png");
+        ico2 = new ImageIcon("img/Two.png");
+        ico3 = new ImageIcon("img/Three.png");
+        
+        btn1.setIcon(ico1);
+        btn2.setIcon(ico2);
+        btn3.setIcon(ico3);
+        
+        p.add(btn1);
+        p.add(btn2);
+        p.add(btn3);
+        
+        //icones par defaut
+       
     }
 
     class BarreMenu extends JMenuBar {
