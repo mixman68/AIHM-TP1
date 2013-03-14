@@ -1,6 +1,10 @@
 package aihm.tp1;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -15,10 +19,14 @@ public class AIHMTP1 {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                MainFrame frame = new MainFrame();
-                //frame.pack();
-                frame.setSize(400,200);
-                frame.setVisible(true);
+                    //look and feel
+                    /*UIManager.setLookAndFeel(
+                                        UIManager.getSystemLookAndFeelClassName());*/
+                    
+                    MainFrame frame = new MainFrame();
+                    //frame.pack();
+                    frame.setSize(400,200);
+                    frame.setVisible(true);
             }
         });
     }
