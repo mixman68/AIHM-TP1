@@ -1,6 +1,7 @@
 package aihm.tp1;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -51,11 +52,15 @@ public class MainFrame extends JFrame {
         panel = new JSplitPane();
         this.getContentPane().add(panel, BorderLayout.CENTER);
 
-
         //PanneauGauche
         JPanel pg = new JPanel();
+        pg.setMinimumSize(new Dimension(100,400));
         panel.setLeftComponent(pg);
         pg.setLayout(new BoxLayout(pg, BoxLayout.Y_AXIS));
+        
+        //panneau droit
+        JPanel pd = new RightPanel();
+        panel.setRightComponent(pd);
 
         this.addButtons(pg);
     }

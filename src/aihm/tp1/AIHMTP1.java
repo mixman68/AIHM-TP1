@@ -1,5 +1,6 @@
 package aihm.tp1;
 
+import java.awt.Dimension;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
@@ -19,14 +20,26 @@ public class AIHMTP1 {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
+                try {
                     //look and feel
-                    /*UIManager.setLookAndFeel(
-                                        UIManager.getSystemLookAndFeelClassName());*/
+                    UIManager.setLookAndFeel(
+                                        UIManager.getSystemLookAndFeelClassName());
                     
                     MainFrame frame = new MainFrame();
-                    //frame.pack();
-                    frame.setSize(400,200);
+                    frame.pack();
+                    frame.setMinimumSize(new Dimension(500,500));
+
+                    //frame.setSize(400,200);
                     frame.setVisible(true);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(AIHMTP1.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(AIHMTP1.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(AIHMTP1.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (UnsupportedLookAndFeelException ex) {
+                    Logger.getLogger(AIHMTP1.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
